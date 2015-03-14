@@ -1,0 +1,11 @@
+#lang racket
+(define (fast-mul a b)
+  (cond ((= b 0) 0)
+        ((= b 1) a)
+        (else(if (even? b)
+                 (double (fast-mul a (half b)))
+                 (+ a (fast-mul a (- b 1)))))))
+(define (double x) ( + x x))
+(define (half x) (/ x 2))
+(define (even? x)
+  (= (remainder x 2) 0))
