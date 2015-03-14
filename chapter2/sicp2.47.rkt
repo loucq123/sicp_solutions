@@ -1,0 +1,22 @@
+#lang racket
+(define (make-frame1 origin edge1 edge2)
+  (list origin edge1 edge2))
+(define (make-frame2 origin edge1 edge2)
+  (cons origin (cons edge1 edge2)))
+(define (origin1 frame)
+  (car frame))
+(define (origin2 frame)
+  (car frame))
+(define (edge2 frame)
+  (cdr frame))
+(define (edge1 frame)
+  (cons (cadr frame)
+        (caddr frame)))
+;tese
+(define frame1 (list 1 2 3))
+(define frame2 (cons 1 (cons 2 3)))
+(origin1 frame1)
+(origin2 frame2)
+(edge1 frame1)
+(edge2 frame2)
+  

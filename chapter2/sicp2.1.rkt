@@ -1,0 +1,28 @@
+#lang racket
+(define (gcd a b)
+  (if (= b 0)
+      a
+      (gcd b (remainder a b))))
+(define (make-rat n d)
+  (let ((g (gcd n d)))
+    (cond ((or (and (< n 0) (> d 0)) (and (> n 0) (< d 0)))  (cons (/ (- 0 n) g) (/ (- 0 d) g)))
+          (else
+           (cons (/ n g) (/ d g))))))
+;test
+(define (number x)
+  (car x))
+(define (denom x)
+  (cdr x))
+(define (print-rat x)
+  (newline)
+  (display (number x))
+  (display "/")
+  (display (denom x)))
+(print-rat (make-rat -2 4))
+(newline)
+(print-rat (make-rat 2 -4))
+(newline)
+(print-rat (make-rat 2 4))
+(newline)
+(print-rat (make-rat -2 -4))
+(newline)
